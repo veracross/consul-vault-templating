@@ -1,0 +1,9 @@
+# Rendered using consult & ruby at <%= timestamp %>
+# Get config from consul!
+hello: <%= key 'hello' %>
+
+# Get secrets from vault!
+<% secret('secret/data/launch_codes').tap do |secret| -%>
+# Secret version: <%= secret.data.dig(:metadata, :version) %>
+sshhhh: <%= secret.data.dig(:data, :password) %>
+<% end %>

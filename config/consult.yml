@@ -1,0 +1,5 @@
+shared:
+  templates:
+    demo:
+      path: demo-template.yml
+      dest: demo-output.yml

@@ -1,0 +1,8 @@
+# Rendered using Consul Template at {{ timestamp }}
+# Get config from consul!
+hello: {{ key "hello" }}
+
+# Get secrets from vault!
+{{ with secret "secret/data/launch_codes" }}
+# This is secret version {{ .Data.metadata.version }}
+password: {{ .Data.data.password }}{{ end }}

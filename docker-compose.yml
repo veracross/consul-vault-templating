@@ -1,0 +1,29 @@
+# Usage:
+#   docker-compose build
+#   docker-compose up
+#   docker exec -it presentations_ubuntu_1 /bin/bash
+version: '3'
+services:
+  consul:
+    image: consul:latest
+    ports:
+      - "8500:8500"
+  vault:
+    image: vault:latest
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=11111111-2222-3333-4444-555555555555
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - "8200:8200"
+  ubuntu:
+    build:
+      context: ./
+      dockerfile: Dockerfile-ubuntu
+    command: tail -f /dev/null
+    environment:
+      - VAULT_TOKEN=11111111-2222-3333-4444-555555555555
+      - VAULT_ADDR=http://vault:8200
+      - CONSUL_HTTP_ADDR=http://consul:8500
+    volumes:
+      - ./:/demo
