@@ -78,10 +78,4 @@ Traceback (most recent call last):
 /usr/lib/ruby/2.5.0/rubygems.rb:289:in `find_spec_for_exe': can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundException)
 ```
 
-when running `bundle install` in the example, make sure that `bundler --version` returns
-
-```bash
-Bundler version 1.17.3
-```
-
-If not, from within `/demo` run `gem install bundler --version 1.17.3`
+when running `bundle install` in the example, try `bundle update --bundler`
