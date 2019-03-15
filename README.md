@@ -68,3 +68,14 @@ $ cd /demo
 $ bundle install
 $ ./render.rb
 ```
+
+Note: If you encounter an issue similar to:
+
+```bash
+Traceback (most recent call last):
+        2: from /usr/local/bin/bundle:23:in `<main>'
+        1: from /usr/lib/ruby/2.5.0/rubygems.rb:308:in `activate_bin_path'
+/usr/lib/ruby/2.5.0/rubygems.rb:289:in `find_spec_for_exe': can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundException)
+```
+
+when running `bundle install` in the example, try `bundle update --bundler`
