@@ -17,4 +17,5 @@ RUN cd /usr/local/src && \
     unzip consul_1.3.0_linux_amd64.zip -d /usr/local/bin && \
     rm consul_1.3.0_linux_amd64.zip
 
-RUN gem install bundler consult
+RUN gem install bundler --version 1.17.3
+RUN gem install consult
